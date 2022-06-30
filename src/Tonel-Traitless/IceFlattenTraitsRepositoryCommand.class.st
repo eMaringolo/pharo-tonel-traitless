@@ -1,17 +1,17 @@
 Class {
-	#name : #IceFlattenTonelCommand,
-	#superclass : #IceTipCommand,
+	#name : #IceFlattenTraitsRepositoryCommand,
+	#superclass : #IceTipRepositoryCommand,
 	#category : #'Tonel-Traitless-Iceberg'
 }
 
 { #category : #'accessing - defaults' }
-IceFlattenTonelCommand class >> defaultName [
+IceFlattenTraitsRepositoryCommand class >> defaultName [
 
 	^ 'Flatten source of traits into their users'
 ]
 
 { #category : #'private ' }
-IceFlattenTonelCommand >> branchName [
+IceFlattenTraitsRepositoryCommand >> branchName [
 
 	| baseName suffix count |
 	count := 0.
@@ -26,7 +26,7 @@ IceFlattenTonelCommand >> branchName [
 ]
 
 { #category : #testing }
-IceFlattenTonelCommand >> canBeExecuted [
+IceFlattenTraitsRepositoryCommand >> canBeExecuted [
 
 	| repository |
 	self hasRepository ifFalse: [ ^ false ].
@@ -38,12 +38,12 @@ IceFlattenTonelCommand >> canBeExecuted [
 ]
 
 { #category : #testing }
-IceFlattenTonelCommand >> execute [
+IceFlattenTraitsRepositoryCommand >> execute [
 	
 	IceFlattenFormatAction new 
 		repository: self repository;
 		branchName: self branchName;
-		format: #toneltraitless;
+		format: #tonel;
 		mergeWithCurrentBranch: false;
 		execute
 ]
